@@ -8,7 +8,7 @@
     </parent>
 
     <artifactId>datanucleus-rdbms</artifactId>
-    <version>6.0.11-SNAPSHOT</version>
+    <version>6.0.11</version>
 
     <name>DataNucleus RDBMS plugin</name>
     <description>
@@ -19,7 +19,7 @@
         <connection>scm:git:git@github.com:datanucleus/${project.artifactId}.git</connection>
         <developerConnection>scm:git:git@github.com:datanucleus/${project.artifactId}.git</developerConnection>
         <url>https://github.com/datanucleus/${project.artifactId}</url>
-      <tag>HEAD</tag>
+      <tag>datanucleus-rdbms-6.0.11</tag>
   </scm>
 
     <properties>
