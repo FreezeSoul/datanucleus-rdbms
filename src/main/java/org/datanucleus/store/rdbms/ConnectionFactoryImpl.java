@@ -590,24 +590,24 @@ public class ConnectionFactoryImpl extends AbstractConnectionFactory
                     catch (SQLException sqle)
                     {
                         throw new NucleusDataStoreException(sqle.getMessage(), sqle);
+                    } finally {
+                        for (int i=0;i<listeners.size();i++)
+                        {
+                            listeners.get(i).managedConnectionPostClose();
+                        }
+
+                        if (savepoints != null)
+                        {
+                            savepoints.clear();
+                            savepoints = null;
+                        }
+                        this.xaRes = null;
+                        this.ec = null;
+
+                        super.close();
                     }
                 }
             }
-
-            for (int i=0;i<listeners.size();i++)
-            {
-                listeners.get(i).managedConnectionPostClose();
-            }
-
-            if (savepoints != null)
-            {
-                savepoints.clear();
-                savepoints = null;
-            }
-            this.xaRes = null;
-            this.ec = null;
-
-            super.close();
         }
 
         /**
